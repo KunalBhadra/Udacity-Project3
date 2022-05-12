@@ -7,21 +7,21 @@ jobs:
       - image: "circleci/python:3.6.4"
     steps:
       - checkout
-      - run: py main.py
+      - run: python3 main.py
   test:
     working_directory: ~/circleci-python
     docker:
       - image: "circleci/python:3.6.4"
     steps:
       - checkout
-      - run: py main-test.py
+      - run: python3 main-test.py
   analyze:
     working_directory: ~/circleci-python
     docker:
       - image: "circleci/python:3.6.4"
     steps:
       - checkout
-      - run: py main.py
+      - run: python3 main.py
 
 workflows:
   my_workflow:
