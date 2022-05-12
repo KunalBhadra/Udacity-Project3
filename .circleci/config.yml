@@ -2,25 +2,26 @@ version: 2.1
 
 jobs:
   build:
+    working_directory: ~/circleci-python
     docker:
-      - image: circleci/node:13.8.0
+      - image: "circleci/python:3.6.4"
     steps:
       - checkout
-      - run: npm i
-      - run: npm run lint
+      - run: py main.py
   test:
+    working_directory: ~/circleci-python
     docker:
-      - image: circleci/node:13.8.0
+      - image: "circleci/python:3.6.4"
     steps:
       - checkout
-      - run: npm i
-      - run: npm run test
+      - run: py main-test.py
   analyze:
+    working_directory: ~/circleci-python
     docker:
-      - image: circleci/node:13.8.0
+      - image: "circleci/python:3.6.4"
     steps:
       - checkout
-      - run: npm audit
+      - run: py main.py
 
 workflows:
   my_workflow:
